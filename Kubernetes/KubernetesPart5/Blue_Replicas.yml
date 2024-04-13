@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: swiggy-blue-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels: 
+      app: v1
+  template:
+    metadata:
+      name: swigy-pod-blue-deployment
+      labels: 
+        app: v1
+    spec:
+      containers: 
+      - name: swiggy-cont-blue-deployment
+        image: httpd
+        ports:
+        - containerPort: 80  

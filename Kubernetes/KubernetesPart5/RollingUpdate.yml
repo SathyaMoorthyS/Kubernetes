@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: swiggy-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels: 
+      app: swiggy-deployment
+  template:
+    metadata:
+      name: swigy-pod-deployment
+      labels: 
+        app: swiggy-deployment
+    spec:
+      containers: 
+      - name: swiggy-cont-deployment
+        image: httpd
+        ports:
+        - containerPort: 80  
+
+
+

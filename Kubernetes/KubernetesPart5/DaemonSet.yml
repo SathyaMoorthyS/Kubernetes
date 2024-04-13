@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: swiggy-replica-daemon
+spec:
+  selector:
+    matchLabels: 
+      app: swiggy-daemon
+  template:
+    metadata:
+      name: swigy-pod-daemon
+      labels: 
+        app: swiggy-daemon
+    spec:
+      containers: 
+      - name: swiggy-cont-daemon
+        image: httpd
+        ports:
+        - containerPort: 80  
+
+
+

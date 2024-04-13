@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: swiggy-replica
+spec:
+  replicas: 3
+  selector:
+    matchLabels: 
+      app: swiggy
+  template:
+    metadata:
+      name: swigy-pod
+      labels: 
+        app: swiggy
+    spec:
+      containers: 
+      - name: swiggy-cont
+        image: httpd
+        ports:
+        - containerPort: 80  
+
+
+

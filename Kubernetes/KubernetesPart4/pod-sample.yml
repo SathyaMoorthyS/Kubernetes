@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: demopod
+  namespace: dev
+spec:
+  containers:
+  - name: sample
+    image: httpd
+    ports:
+    - containerPort: 80

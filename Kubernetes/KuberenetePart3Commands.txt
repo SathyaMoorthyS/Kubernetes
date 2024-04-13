@@ -1,0 +1,62 @@
+		apt-get update -y
+    2  curl -Lo kops https://github.com/kubernetes/kops/releases/download/$(curl -s https://api.github.com/repos/kubernetes/kops/releases/latest | grep tag_name | cut -d '"' -f 4)/kops-linux-amd64
+    3  chmod +x ./kops
+    4  mv ./kops /usr/local/bin/
+    5  curl -Lo kubectl https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
+    6  chmod +x ./kubectl
+    7  apt install awscli
+    8  aws configure
+    9  export AWS_ACCESS_KEY_ID=AKIAULJSYI5NY2O4SGDA
+   10  export AWS_SECRET_ACCESS_KEY=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
+   11  ssh-keygen
+   12  cd .ssh/
+   13  export NAME=kops.k8s.local
+   14  export KOPS_STATE_STORE=s3://kops-bucket-2024
+   15  kops create cluster --zones us-east-1a ${NAME}
+   22  kops update cluster --name kops.k8s.local --yes --admin
+   23  kops get cluster
+   24  kops create cluster --zones us-east-1a ${NAME}
+   25  =ls -la
+   26  ls -la
+   27  vi pod.yaml
+   28  kubectl apply -f pod.yml
+   41  kubectl get pods
+   42  history
+   43  kubectl expain pod
+   44  kubectl explain pod
+   45  kubectl get pod -o wide
+   46  kubectl get pod -o yaml
+   47  history
+   48  kubectl describe pod demopod
+   49  kubectl get namepace
+   50  kubectl explain pod
+   51  kubectl get pods
+   52  kubecl get ns
+   53  kubectl get ns
+   54  kebectl get pod -n kube-system
+   55  kubectl get pod -n kube-system
+   56  kuvbectl get pod -n default
+   57  kubectl get pod -n default
+   58  kubectl create ns dev
+   59  kubectl create ns prod
+   60  kubectl create ns test
+   61  kubectl create ns
+   62  kubectl get ns
+   69  kubectl get pod -n dev
+   70  kubectl get pod -n default
+   71  kubectl get pod -n dev
+   72  kubectl get pods
+   73  kubectl explain pod
+
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: demopod
+  namespace: dev
+spec:
+  containers:
+  - name: sample
+    image: httpd
+    ports:
+    - containerPort: 80

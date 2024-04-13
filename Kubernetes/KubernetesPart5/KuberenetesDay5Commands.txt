@@ -1,0 +1,189 @@
+[1:06 PM] Cloud 20
+CONFLICT MAP
+[1:06 PM] Cloud 20
+SECRETE MAP
+[1:06 PM] Cloud 20
+PVC
+
+7200092796
+
+ReplicaSet
+
+Desired Capacity
+
+Can have null to any pod for each Worker Node
+DAomonSet
+
+One pod for each Worker Node
+
+Recreate Delete all version one by one and create new versions like v1 to v2
+
+Rollin Update First Create v2 and then delete v1
+
+
+ClusterIP => CI
+NodePort => NP + CI
+LoadBalancer+> LB + NP + CI
+ReplicaSet => RS + PODS
+Deployment +> Deploymen + RS + PODS
+
+BlueGreen Deployment
+
+Simply swicth over the traffic i.e blue to green pods
+
+
+ 1  apt-get update -y
+    2  curl -Lo kops https://github.com/kubernetes/kops/releases/download/$(curl -s https://api.github.com/repos/kubernetes/kops/releases/latest | grep tag_name | cut -d '"' -f 4)/kops-linux-amd64
+    3  chmod +x ./kops
+    4  mv ./kops /usr/local/bin/
+    5  chmod +x ./kubectl
+    6  aws configure
+    7  ssh-keygen
+    8  cd .ssh/
+    9  export NAME=kops.k8s.local
+   10  kops create cluster --zones us-east-1a ${NAME}
+   11  kops update cluster --name kops.k8s.local --yes --admin
+   12  vi b.yml
+   13  kubectl apply -f b.yml
+   14  ls
+   15  kubectl apply -f b.yml
+   16  cd ..
+   17  ls
+   18  curl -Lo kubectl https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
+   19  ls
+   20  chmod +x ./kubectl
+   21  cvd .ssh/
+   22  cd .ssh/
+   23  kubectl apply -f b.yml
+   24  ls
+   25  kubectl apply -f b.yml
+   26  cd ..
+   27  kubectl apply -f b.yml
+   28  curl -Lo kubectl https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
+   29  chmod +x ./kubectl
+   30  ls
+   31  apt-get update -y
+   32  curl -Lo kops https://github.com/kubernetes/kops/releases/download/$(curl -s https://api.github.com/repos/kubernetes/kops/releases/latest | grep tag_name | cut -d '"' -f 4)/kops-linux-amd64
+   33  ls
+   34  mv ./kops /usr/local/bin/
+   35  curl -Lo kubectl https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
+   36  chmod +x ./kubectl
+   37  aws configure
+   38  ssh-keygen
+   39  cd .ssh/
+   40  ls
+   41  export NAME=kops.k8s.local
+   42  export KOPS_STATE_STORE=s3://kops-bucket-2024
+   43  kops delete cluster --name=kops.k8s.local --state=s3://kops-bucket-2024 --yes
+   44  kops create cluster --zones us-east-1a ${NAME} --node-count=5 --yes
+   45  kops delete cluster --name=kops.k8s.local --state=s3://kops-bucket-2024 --yes
+   46  kops create cluster --zones us-east-1a ${NAME}
+   47  ls
+   48  vi b.yml
+   49  kubectl apply -f b.yml
+   50  kubectl apply -f pod.yml
+   51  ls
+   52  curl -Lo kubectl https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
+   53  ls
+   54  chmod +x ./kubectl
+   55  kubectl apply -f b.yml
+   56  ls
+   57  chmod +x ./kubectl
+   58  ls
+   59  kubectl apply -f b.yml
+   60  sudo mv ./kubectl /usr/local/bin/kubectl
+   61  ls
+   62  kubectl apply -f b.yml
+   63  history
+ 1  apt-get update -y
+    2  curl -Lo kops https://github.com/kubernetes/kops/releases/download/$(curl -s https://api.github.com/repos/kubernetes/kops/releases/latest | grep tag_name | cut -d '"' -f 4)/kops-linux-amd64
+    3  chmod +x ./kops
+    4  mv ./kops /usr/local/bin/
+    5  chmod +x ./kubectl
+    6  aws configure
+    7  ssh-keygen
+    8  cd .ssh/
+    9  export NAME=kops.k8s.local
+   10  kops create cluster --zones us-east-1a ${NAME}
+   11  kops update cluster --name kops.k8s.local --yes --admin
+   12  vi b.yml
+   13  kubectl apply -f b.yml
+   14  ls
+   15  kubectl apply -f b.yml
+   16  cd ..
+   17  ls
+   18  curl -Lo kubectl https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
+   19  ls
+   20  chmod +x ./kubectl
+   21  cvd .ssh/
+   22  cd .ssh/
+   23  kubectl apply -f b.yml
+   24  ls
+   25  kubectl apply -f b.yml
+   26  cd ..
+   27  kubectl apply -f b.yml
+   28  curl -Lo kubectl https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
+   29  chmod +x ./kubectl
+   30  ls
+   31  apt-get update -y
+   32  curl -Lo kops https://github.com/kubernetes/kops/releases/download/$(curl -s https://api.github.com/repos/kubernetes/kops/releases/latest | grep tag_name | cut -d '"' -f 4)/kops-linux-amd64
+   33  ls
+   34  mv ./kops /usr/local/bin/
+   35  curl -Lo kubectl https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
+   36  chmod +x ./kubectl
+   37  aws configure
+   38  ssh-keygen
+   39  cd .ssh/
+   40  ls
+   41  export NAME=kops.k8s.local
+   42  export KOPS_STATE_STORE=s3://kops-bucket-2024
+   43  kops delete cluster --name=kops.k8s.local --state=s3://kops-bucket-2024 --yes
+   44  kops create cluster --zones us-east-1a ${NAME} --node-count=5 --yes
+   45  kops delete cluster --name=kops.k8s.local --state=s3://kops-bucket-2024 --yes
+   46  kops create cluster --zones us-east-1a ${NAME}
+   47  ls
+   48  vi b.yml
+   49  kubectl apply -f b.yml
+   50  kubectl apply -f pod.yml
+   51  ls
+   52  curl -Lo kubectl https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
+   53  ls
+   54  chmod +x ./kubectl
+   55  kubectl apply -f b.yml
+   56  ls
+   57  chmod +x ./kubectl
+   58  ls
+   59  kubectl apply -f b.yml
+   60  sudo mv ./kubectl /usr/local/bin/kubectl
+   61  ls
+   62  kubectl apply -f b.yml
+   63  history
+
+
+
+kubectl get all
+  188  vi daemon.yml
+  189  kubectl apply -f daemon.yml
+  190  kubectl get all
+  191  clear
+  192  kubectl delete all --all
+  193  kubectl get all
+
+
+
+ 1  kubectl delete all --all
+    2  kops delete cluster --name=kops.k8s.local --state=s3://kops-bucket-2024 --yes
+    3  kops create cluster --zones us-east-1a ${NAME}
+    4  export NAME=kops.k8s.local
+    5  export KOPS_STATE_STORE=s3://kops-bucket-2024
+    6  kops create cluster --zones us-east-1a ${NAME}
+    7  kops update cluster --name kops.k8s.local --yes --admin
+    8  ls
+    9  cd .ssh/
+   10  ls
+   11  kops get cluster
+   12  ls
+   13  kubectl apply -f b.yml
+
+
+
